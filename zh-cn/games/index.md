@@ -1,9 +1,8 @@
 ---
 title: 3. 博弈
-parent: 中文版
 nav_order: 3
 has_children: true
-layout: page
+lang: zh-cn
 header-includes:
     \pagenumbering{gobble}
 ---
