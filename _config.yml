@@ -32,7 +32,7 @@ color_scheme: wider
 
 # Multi-language support
 aux_links:
-  "CS 188 Course":
+  "CS188 课程主页":
     - "https://inst.eecs.berkeley.edu/~cs188/"
   "Dark Mode":
     - "#"
