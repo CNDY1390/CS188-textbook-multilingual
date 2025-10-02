@@ -23,17 +23,23 @@ title: Introduction to Artificial Intelligence
 #  Write an awesome description for your new site here. You can edit this
 #  line in _config.yml. It will appear in your document head meta (for
 #  Google search results) and in your feed.xml site description.
-baseurl: /CS188-textbook-multilingual # 简短路径
-url: https://cndy1390.github.io # 你的 GitHub Pages 域名
+baseurl: /CS188-textbook-multilingual
+url: https://cndy1390.github.io
 
 # Build settings
 remote_theme: pmarsceill/just-the-docs
 color_scheme: wider
+
+# Multi-language support
 aux_links:
-  "CS 188":
+  "CS 188 Course":
     - "https://inst.eecs.berkeley.edu/~cs188/"
+  "简体中文":
+    - "/zh-cn/"
   "Dark Mode":
     - "#"
+  "GitHub":
+    - "https://github.com/CNDY1390/CS188-textbook-multilingual"
 
 # Exclude from processing.
 # The following items will not be processed, by default.
