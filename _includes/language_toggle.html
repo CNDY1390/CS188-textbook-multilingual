@@ -1,16 +1,4 @@
 <!-- Smart Language Toggle -->
-<div class="language-toggle" style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
-  {%- if page.lang == 'zh-cn' -%}
-    <a href="javascript:void(0)" onclick="switchToEnglish()" class="btn btn-outline" style="padding: 8px 16px;">
-      🇺🇸 English
-    </a>
-  {%- else -%}
-    <a href="javascript:void(0)" onclick="switchToChinese()" class="btn btn-outline" style="padding: 8px 16px;">
-      🇨🇳 简体中文
-    </a>
-  {%- endif -%}
-</div>
-
 <script>
 function switchToChinese() {
   var currentPath = window.location.pathname;
@@ -53,8 +41,24 @@ function switchToEnglish() {
 }
 </script>
 
+<div class="language-toggle">
+  {%- if page.lang == 'zh-cn' -%}
+    <a href="javascript:void(0)" onclick="switchToEnglish()" class="btn btn-outline">
+      🇺🇸 English
+    </a>
+  {%- else -%}
+    <a href="javascript:void(0)" onclick="switchToChinese()" class="btn btn-outline">
+      🇨🇳 简体中文
+    </a>
+  {%- endif -%}
+</div>
+
 <style>
 .language-toggle {
+  position: fixed;
+  top: 80px;  /* 降低位置，避免挡住顶部栏 */
+  right: 20px;
+  z-index: 999;  /* 降低 z-index，避免遮挡其他元素 */
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
@@ -68,6 +72,7 @@ function switchToEnglish() {
   display: inline-block;
   font-size: 14px;
   font-weight: 500;
+  padding: 8px 16px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
@@ -81,13 +86,13 @@ function switchToEnglish() {
 /* Mobile responsive */
 @media (max-width: 768px) {
   .language-toggle {
-    top: 10px;
+    top: 60px;
     right: 10px;
   }
   
   .language-toggle .btn {
     font-size: 12px;
-    padding: 6px 12px !important;
+    padding: 6px 12px;
   }
 }
 </style>
