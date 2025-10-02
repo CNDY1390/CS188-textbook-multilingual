@@ -1,44 +1,47 @@
 <!-- Smart Language Toggle -->
-<script>
-function switchToChinese() {
-  var currentPath = window.location.pathname;
-  var basePath = '{{ site.baseurl }}';
-  
-  // Remove baseurl to get relative path
-  var relativePath = currentPath.replace(basePath, '');
-  
-  // If already in zh-cn, do nothing
-  if (relativePath.startsWith('/zh-cn/')) {
-    return;
-  }
-  
-  // Add /zh-cn/ prefix
-  var newPath = basePath + '/zh-cn' + relativePath;
-  
-  // Handle index pages
-  if (newPath.endsWith('/')) {
-    newPath += 'index.html';
-  } else if (!newPath.includes('.html')) {
-    newPath += '.html';
-  }
-  
-  window.location.href = newPath;
-}
+<script type="text/javascript">
+(function() {
+  // Define functions in global scope
+  window.switchToChinese = function() {
+    var currentPath = window.location.pathname;
+    var basePath = '{{ site.baseurl }}';
+    
+    // Remove baseurl to get relative path
+    var relativePath = currentPath.replace(basePath, '');
+    
+    // If already in zh-cn, do nothing
+    if (relativePath.indexOf('/zh-cn/') === 0) {
+      return;
+    }
+    
+    // Add /zh-cn/ prefix
+    var newPath = basePath + '/zh-cn' + relativePath;
+    
+    // Handle index pages
+    if (newPath.charAt(newPath.length - 1) === '/') {
+      newPath += 'index.html';
+    } else if (newPath.indexOf('.html') === -1) {
+      newPath += '.html';
+    }
+    
+    window.location.href = newPath;
+  };
 
-function switchToEnglish() {
-  var currentPath = window.location.pathname;
-  var basePath = '{{ site.baseurl }}';
-  
-  // Remove /zh-cn/ from path
-  var newPath = currentPath.replace('/zh-cn/', '/');
-  
-  // Handle index pages
-  if (newPath.endsWith('/')) {
-    newPath += 'index.html';
-  }
-  
-  window.location.href = newPath;
-}
+  window.switchToEnglish = function() {
+    var currentPath = window.location.pathname;
+    var basePath = '{{ site.baseurl }}';
+    
+    // Remove /zh-cn/ from path
+    var newPath = currentPath.replace('/zh-cn/', '/');
+    
+    // Handle index pages
+    if (newPath.charAt(newPath.length - 1) === '/') {
+      newPath += 'index.html';
+    }
+    
+    window.location.href = newPath;
+  };
+})();
 </script>
 
 <div class="language-toggle">
