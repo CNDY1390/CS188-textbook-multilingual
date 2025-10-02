@@ -30,7 +30,16 @@ endcomment -%}
   "include_cached", though a more robust solution for really large websites
   would pass in the page url as a parameter. I've never noticed a performance
   impact for Berkeley CS sized websites though (<100 pages in the navbar). {%-
-  endcomment -%} {% include components/site_nav.html %} {% capture
+  endcomment -%}
+  {%- comment -%} Language-aware navigation {%- endcomment -%}
+  {%- if page.lang == 'zh-cn' -%}
+    <nav aria-label="Main" id="site-nav" class="site-nav">
+      {% include nav.html pages=site.html_pages key=nil %}
+    </nav>
+  {%- else -%}
+    {% include components/site_nav.html %}
+  {%- endif -%}
+  {% capture
   nav_footer_custom %} {%- include nav_footer_custom.html -%} {% endcapture %}
   {% if nav_footer_custom != "" %} {{ nav_footer_custom }} {% else %}
   <footer class="site-footer">

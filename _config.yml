@@ -32,14 +32,20 @@ color_scheme: wider
 
 # Multi-language support
 aux_links:
-  "CS188 课程主页":
+  "CS 188":
     - "https://inst.eecs.berkeley.edu/~cs188/"
   "Dark Mode":
     - "#"
-  "简体中文":
-    - "/CS188-textbook-multilingual/zh-cn/"
   "GitHub":
     - "https://github.com/CNDY1390/CS188-textbook-multilingual"
+
+# Automatically exclude Chinese pages from English navigation
+defaults:
+  - scope:
+      path: "zh-cn"
+    values:
+      nav_exclude: true
+      lang: zh-cn
 
 # Exclude from processing.
 # The following items will not be processed, by default.

@@ -33,9 +33,14 @@
   group in sorted_string_ordered_groups -%} {%- assign
   sorted_string_ordered_pages = sorted_string_ordered_pages | concat:
   group.items -%} {%- endfor -%} {%- assign pages_list =
-  sorted_number_ordered_pages | concat: sorted_string_ordered_pages -%} {%- for
-  node in pages_list -%} {%- if node.parent == nil -%} {%- unless
-  node.nav_exclude or node.released == false and jekyll.environment != "debug"
+  sorted_number_ordered_pages | concat: sorted_string_ordered_pages -%}
+  {%- comment -%} Filter by language {%- endcomment -%}
+  {%- assign current_lang = page.lang | default: "en" -%}
+  {%- for
+  node in pages_list -%} {%- if node.parent == nil -%}
+  {%- assign node_lang = node.lang | default: "en" -%}
+  {%- unless
+  node.nav_exclude or node.released == false and jekyll.environment != "debug" or current_lang != node_lang
   -%} {%- assign url_size = node.url | size -%} {%- assign prefix = page.url |
   slice: 0, url_size -%}
   <li

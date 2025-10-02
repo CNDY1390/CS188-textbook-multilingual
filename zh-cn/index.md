@@ -1,7 +1,7 @@
 ---
 title: 介绍
 nav_order: 0
-lang: zh-cn
+permalink: /zh-cn/
 header-includes:
     \pagenumbering{gobble}
 ---
