@@ -34,10 +34,10 @@ color_scheme: wider
 aux_links:
   "CS 188 Course":
     - "https://inst.eecs.berkeley.edu/~cs188/"
-  "简体中文":
-    - "/zh-cn/"
   "Dark Mode":
     - "#"
+  "简体中文":
+    - "/zh-cn/"
   "GitHub":
     - "https://github.com/CNDY1390/CS188-textbook-multilingual"
 
